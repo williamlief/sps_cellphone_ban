@@ -49,6 +49,7 @@ dat <- raw2 |>
   separate(name, into = c("survey", "question"), sep = "@") |> 
   mutate(
     school = tolower(school),
+    value = as.numeric(value),
     # annoying year_term sorting
     year_term = str_trim(str_extract(survey, "^[^-]+")),
     year_term = factor(year_term, levels = ordered_year_terms, ordered = TRUE),
